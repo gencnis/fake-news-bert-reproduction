@@ -45,6 +45,7 @@ The dataset is not included in this repository. It should be accessed through Hu
 
 ## Repository Structure
 
+```text
 src/
 ├── data_preparation/
 │   ├── check_hf_dataset.py
@@ -80,6 +81,7 @@ figures/
 
 notes/
 └── experiment_log.txt
+```
 
 ## Reproduction Experiments
 
