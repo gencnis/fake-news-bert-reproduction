@@ -1,0 +1,68 @@
+Model: DistilBERT (distilbert-base-uncased)
+Target label: gpt label
+Dataset source: newsmediabias/NELA-GT_GPT-Labels_Dataset
+Split: custom 80/10/10 stratified split, seed=42
+Train rows: 4331
+Validation rows: 541
+Test rows: 542
+
+Training setup:
+- epochs: 3
+- train batch size: 8
+- eval batch size: 8
+- learning rate: 2e-5
+- weight decay: 0.01
+- max length: 512
+- input text: title + [SEP] + content
+
+Validation results:
+- accuracy: 0.8651
+- precision: 0.7119
+- recall: 0.4286
+- f1: 0.5350
+
+Test results:
+- accuracy: 0.8708
+- precision: 0.7302
+- recall: 0.4646
+- f1: 0.5679
+
+Observations:
+- Accuracy is decent, but recall is relatively low.
+- The model likely struggles with the minority class.
+- Class imbalance in gpt label distribution is a likely cause.
+- This run serves as the first reproducible local baseline for Stage 2.
+
+RoBERTa Baseline:
+Model: RoBERTa (roberta-base)
+Target label: gpt label
+Dataset source: newsmediabias/NELA-GT_GPT-Labels_Dataset
+Split: custom 80/10/10 stratified split, seed=42
+
+Training setup:
+- epochs: 3
+- train batch size: 4
+- eval batch size: 4
+- learning rate: 2e-5
+- weight decay: 0.01
+- max length: 512
+- input text: title + </s> + content
+
+Validation results:
+- accuracy: 0.8484
+- precision: 0.7222
+- recall: 0.2653
+- f1: 0.3881
+
+Test results:
+- accuracy: 0.8598
+- precision: 0.7949
+- recall: 0.3131
+- f1: 0.4493
+
+Observations:
+- RoBERTa underperformed compared to DistilBERT on F1-score.
+- Precision is higher, but recall is much lower.
+- The model appears more conservative and misses many positive-class samples.
+- Class imbalance is likely a major factor.
+- Checkpoint loading warnings should be documented as a possible reproducibility issue.

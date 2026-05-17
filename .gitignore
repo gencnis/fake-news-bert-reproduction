@@ -179,3 +179,30 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Local datasets and cached artifacts
+data/
+*.arrow
+*.parquet
+*.csv.cache
+
+# Model checkpoints and large ML artifacts
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+*.onnx
+
+# Local training output folders
+outputs/
+stage3/outputs/*/best_model/
+stage3/outputs/distilbert_mild_weighted/
+stage3/outputs/distilbert_5epoch/
+stage3/outputs/distilbert_lr1e5/
+stage3/outputs/bert_base/
+stage3/outputs/threshold_tmp/
+
+# Hugging Face / local secrets
+.env
+*.token
+huggingface_token*

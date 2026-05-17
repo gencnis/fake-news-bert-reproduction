@@ -1,0 +1,9 @@
+experiment,model,change,test_accuracy,test_precision,test_recall,test_f1
+stage2_baseline,DistilBERT,baseline,0.8708,0.7302,0.4646,0.5679
+stage2_roberta,RoBERTa,baseline,0.8598,0.7949,0.3131,0.4493
+stage2_weighted,DistilBERT,weighted loss,0.8173,0.5,0.6465,0.5639
+stage3_threshold_tuning,DistilBERT,"threshold tuning, threshold=0.48",0.869,0.7188,0.4646,0.5644
+stage3_mild_weighted,DistilBERT,mild weighted loss sqrt class weights,0.8376,0.5534,0.5758,0.5644
+stage3_distilbert_5epoch,DistilBERT,epoch increased from 3 to 5,0.8598,0.6575,0.4848,0.5581
+stage3_distilbert_lr1e5,DistilBERT,learning rate reduced from 2e-5 to 1e-5,0.8506,0.6071,0.5152,0.5574
+stage3_bert_base,BERT-base,different BERT-like architecture,0.8727,0.7679,0.4343,0.5548
